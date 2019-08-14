@@ -5,6 +5,10 @@
 
 <cache />
 
+	<insert id="insertKendoJoin" parameterType="KendoJoin" >
+		insert into KENDOJOIN (JOIN_NUM, DO_NUM, GUEST_NUM, HOST_NUM, JOIN_DATE, JOIN_KAKAOID, JOIN_INTRODUCE, JOIN_QTY)
+		values ('JN' + JOIN_NUM_SEQ.nexval, , , , sysdate, #{joinKakaoid},#{joinIntroduce},#{joinQty})
+	</insert>
 
 
 </mapper>

@@ -14,7 +14,7 @@ public class KendoJoinRepository {
 	private final String namespace = "KIM-Mapper";
 	
 	public void insertMember(KendoJoin kendoJoin) {
-		String statement =  namespace + ".insertMember"; 
+		String statement =  namespace + ".insertKendoJoin"; 
 		sqlSession.insert(statement, kendoJoin);
 	}
 }

@@ -32,6 +32,7 @@ public class KendoJoinCommand {
 	public void setJoinQty(Integer joinQty) {
 		this.joinQty = joinQty;
 	}
+	
 	public String[] getFriendName() {
 		return friendName;
 	}

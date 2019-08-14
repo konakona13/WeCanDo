@@ -1,6 +1,6 @@
 package Command.kimCommand;
 
-public class GuestPay {
+public class GuestPayCommand {
 	private String payStyle;
 	private String payCardName;
 	private Integer payCardNum;
