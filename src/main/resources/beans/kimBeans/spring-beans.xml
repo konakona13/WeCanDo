@@ -7,8 +7,9 @@
 			http://www.springframework.org/schema/beans/spring-beans.xsd
 			"	
 >
-
-<!-- 	<bean class = "Controller.MemberLogController" /> -->
-
-
+	
+	<!-- <bean id = "member"  class="Model.DTO.Member" /> -->
+	
+<bean id = "kendoJoinService" class= "Service.kimService.KendoJoinService"/>	
+	
 </beans>
