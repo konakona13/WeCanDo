@@ -4,7 +4,16 @@
 <mapper namespace="MemberMapper">
 	
 <cache />
-	
+	<!-- <select id="memberSelectId" parameterType="string" resultMap="baseMember">
+		SELECT
+	  		<include refid="basecolumn" />
+		FROM member
+		<where>
+			<if test="id1 != null">
+				MEMBER_ID = #{id1}
+			</if>
+		</where>	
+	</select> -->
 </mapper>
 
 
