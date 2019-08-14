@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	response.setCharacterEncoding("utf-8");
+ %>       
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +12,7 @@
 <body>
         <h3>활동참가신청</h3>
         <p>
-        <form name="kendoJoinAction" action="kendoJoinAction" method="POST">
+        <form name="frm" action="kendoJoinAction" method="POST">
             <table>
                 <tr>
                     <td>활동번호 </td>

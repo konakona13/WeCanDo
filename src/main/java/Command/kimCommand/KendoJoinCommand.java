@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 public class KendoJoinCommand {
 
 	private String joinKakaoId;
-	private Clob joinIntroduce;
+	private String joinIntroduce;
 	private Integer joinQty;
 	
 	private String [] friendName;
@@ -20,10 +20,10 @@ public class KendoJoinCommand {
 	public void setJoinKakaoId(String joinKakaoId) {
 		this.joinKakaoId = joinKakaoId;
 	}
-	public Clob getJoinIntroduce() {
+	public String getJoinIntroduce() {
 		return joinIntroduce;
 	}
-	public void setJoinIntroduce(Clob joinIntroduce) {
+	public void setJoinIntroduce(String joinIntroduce) {
 		this.joinIntroduce = joinIntroduce;
 	}
 	public Integer getJoinQty() {
