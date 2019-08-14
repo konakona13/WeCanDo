@@ -20,21 +20,21 @@
   			classpath:default/spring-jdbc.xml
   			
   			
+  			classpath:Repository/HHH-Repository.xml
+  			classpath:Repository/YYY-Repository.xml
+  			classpath:Repository/LEE-Repository.xml
+  			classpath:Repository/KIM-Repository.xml
   			
   			classpath:Service/HHH-Service.xml
   			classpath:Service/YYY-Service.xml
   			classpath:Service/KIM-Service.xml
   			classpath:Service/LEE-Service.xml
   			
-  			classpath:Controller/HHH-controller.xml
-  			classpath:Controller/KIM-controller.xml
-  			classpath:Controller/LEE-controller.xml
-  			classpath:Controller/YYY-controller.xml
+  			classpath:ControllerWe/HHH-controller.xml
+  			classpath:ControllerWe/KIM-controller.xml
+  			classpath:ControllerWe/LEE-controller.xml
+  			classpath:ControllerWe/YYY-controller.xml
   			
-  			classpath:Repository/HHH-Repository.xml
-  			classpath:Repository/YYY-Repository.xml
-  			classpath:Repository/LEE-Repository.xml
-  			classpath:Repository/KIM-Repository.xml
   			
   			
   		</param-value>
