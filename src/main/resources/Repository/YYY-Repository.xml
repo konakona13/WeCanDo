@@ -7,8 +7,9 @@
 			http://www.springframework.org/schema/beans/spring-beans.xsd
 			"	
 >
+	
+	<!-- <bean id = "member"  class="Model.DTO.Member" /> -->
+	
 
-<!-- 	<bean class = "Controller.MemberLogController" /> -->
-
-
+	
 </beans>

@@ -19,6 +19,24 @@
   			classpath:default/spring-context.xml
   			classpath:default/spring-jdbc.xml
   			
+  			
+  			
+  			classpath:Service/HHH-Service.xml
+  			classpath:Service/YYY-Service.xml
+  			classpath:Service/KIM-Service.xml
+  			classpath:Service/LEE-Service.xml
+  			
+  			classpath:Controller/HHH-controller.xml
+  			classpath:Controller/KIM-controller.xml
+  			classpath:Controller/LEE-controller.xml
+  			classpath:Controller/YYY-controller.xml
+  			
+  			classpath:Repository/HHH-Repository.xml
+  			classpath:Repository/YYY-Repository.xml
+  			classpath:Repository/LEE-Repository.xml
+  			classpath:Repository/KIM-Repository.xml
+  			
+  			
   		</param-value>
   	</init-param>
   	<load-on-startup>1</load-on-startup>
