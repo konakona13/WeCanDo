@@ -11,7 +11,7 @@
 <body>
     <h1>활동개설신청서?</h1>
        
-        <form action="장소리스트.html">
+        <form action="doCreatePlace">
             <p>회원정보</p>
             <p>회원정보</p>
             <p>회원정보</p>

@@ -23,4 +23,27 @@ public class DoCreateController
 		return "HHHview/doCreateFirst";
 	}
 	
+	@RequestMapping("/doCreatePlace")
+	public String doCreatePlace(Model model, HttpSession session)
+	{
+		
+		return "HHHview/doCreatePlace";
+	}
+	
+	@RequestMapping("/doCreatePay")
+	public String doCreatePay(Model model, HttpSession session)
+	{
+		
+		return "HHHview/doCreatePay";
+	}
+	
+	@RequestMapping("/doCreateCardPay")
+	public String doCreateCardPay(Model model, HttpSession session)
+	{
+		
+		return "HHHview/doCreateCardPay";
+	}
+	
+	
+	
 }
