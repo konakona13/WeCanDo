@@ -16,13 +16,15 @@ public class KendoJoinController {
 	
 	
 	@RequestMapping("/kendoJoin")
-	public void kendoJoin(Model model) {
-		
+	public String kendoJoin(Model model) {
+		path = "kimView/kendoJoin";
+		return path;
 	}
 	
 	@RequestMapping("/kendoJoinAction")
-	public void kendoJoinAction(Model model,KendoJoinCommand kendoJoinCommand ) {
+	public String kendoJoinAction(Model model,KendoJoinCommand kendoJoinCommand ) {
 		path = kendoJoinService.insertKendoJoin(model, kendoJoinCommand);
+		return "";
 		
 		
 	}
