@@ -9,6 +9,6 @@
 >
 
 <!-- 	<bean class = "Controller.MemberLogController" /> -->
-
+<bean class = "Controller.kimController.KendoJoinController" />
 
 </beans>
