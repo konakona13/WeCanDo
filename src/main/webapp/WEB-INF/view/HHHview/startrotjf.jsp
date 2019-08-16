@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="docreateStart">활동개설</a>
+    <a href="doCreateEnter">활동개설</a>
 </body>
 
 </html>

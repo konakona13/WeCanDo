@@ -7,8 +7,6 @@
 			http://www.springframework.org/schema/beans/spring-beans.xsd
 			"	
 >
-
-<!-- 	<bean class = "Controller.MemberLogController" /> -->
-
+	<bean class = "Controller.HhhController.DoCreateController" />
 
 </beans>
