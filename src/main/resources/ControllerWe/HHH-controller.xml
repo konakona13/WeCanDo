@@ -7,6 +7,6 @@
 			http://www.springframework.org/schema/beans/spring-beans.xsd
 			"	
 >
-	<bean class = "Controller.HhhController.DoCreateController" />
+	<bean class = "Controller.HHHController.DoCreateController" />
 
 </beans>
