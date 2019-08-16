@@ -8,8 +8,8 @@
 			"	
 >
 	
-	<!-- <bean id = "member"  class="Model.DTO.Member" /> -->
 	
+	 <bean id = "member"  class="Service.YYYService.PlaceGoodsRegService" />
 
 	
 </beans>

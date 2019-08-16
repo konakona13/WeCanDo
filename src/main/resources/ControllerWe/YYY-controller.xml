@@ -8,7 +8,14 @@
 			"	
 >
 
-<!-- 	<bean class = "Controller.MemberLogController" /> -->
+<!-- Controller -->
+<bean class = "Controller.YYYController.GoodsRegController" />
 
+
+<!-- Command -->
+<bean class = "Command.YYYCommand.PlaceGoodsRegCommand" />
+
+<!-- DTO -->
+<bean id = "placeGoods"  class="Model.DTO.YYYDTO.PlaceGoods" />
 
 </beans>
