@@ -16,7 +16,7 @@ public class GoodsRegController {
 	private PlaceGoodsRegService placeRegService;
 	
 	
-	@RequestMapping(value = "/GoodsReg", method = {RequestMethod.POST,RequestMethod.GET})
+	@RequestMapping(value = "/goodsReg", method = {RequestMethod.POST,RequestMethod.GET})
 	public String joinMember(Model model, PlaceGoodsRegCommand command) {
 		return "YYYView/goodsMain";
 	} 
