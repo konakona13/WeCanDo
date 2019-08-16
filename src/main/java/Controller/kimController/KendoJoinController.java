@@ -10,7 +10,7 @@ import Service.kimService.KendoJoinService;
 
 @Controller
 public class KendoJoinController {
-	
+	String path = "";
 	@Autowired
 	private KendoJoinService kendoJoinService;
 	
@@ -22,6 +22,8 @@ public class KendoJoinController {
 	
 	@RequestMapping("/kendoJoinAction")
 	public void kendoJoinAction(Model model,KendoJoinCommand kendoJoinCommand ) {
-		kendoJoinService.insertKendoJoin(model, kendoJoinCommand);
+		path = kendoJoinService.insertKendoJoin(model, kendoJoinCommand);
+		
+		
 	}
 }
