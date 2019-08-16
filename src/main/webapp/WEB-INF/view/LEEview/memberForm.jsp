@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title><spring:message code = "member.register"/></title>
+<title>회원 가입</title>
 <script type="text/javascript" 
  src="http://code.jquery.com/jquery-latest.js" ></script>
 <script type="text/javascript">
@@ -117,7 +117,7 @@ $(function(){
 				id = "userBir" size = "12" maxlength="10" />
 			-
 			<form:input path="userGender" 
-				id = "userGender" size = "1" maxlength="1"/>
+				id = "userGender" size = "1" maxlength="1"/>******
 		</td>
 	</tr>
 	<tr><td width = 200 ><b>* 이메일 </b></td>
@@ -139,12 +139,7 @@ $(function(){
 				id = "userPh1" size = "30" maxlength="28"/>
 		</td>
 	</tr>
-	<tr>
-		<td width = 200 ><b>* 프로필사진 </b></td>
-		<td width = 400 >
-			<input type="file" name="profile" maxlength="28"/>
-		</td>
-	</tr>
+
 	<tr>
 		<td colspan=2> 
 			<input type ="submit" value="가입" id="submit1" />
@@ -154,7 +149,7 @@ $(function(){
 	</tr>
 	</table>
 	<input type = "hidden" name = "confirmNum" 
-			id="confirmNum" value="1"/>
+			id="confirmNum" value="2"/>
 </form:form>
 </body>
 </html>
