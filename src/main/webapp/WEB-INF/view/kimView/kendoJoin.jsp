@@ -12,44 +12,46 @@
 <body>
         <h3>활동참가신청</h3>
         <p>
-        <form name="frm" action="kendoJoinAction" method="POST">
+        <form name="frm" action="guestPay" method="POST">
             <table>
                 <tr>
                     <td>활동번호 </td>
-                    <td></td>
+                    <td> <input type=text name = "doNum"/>DO1001</td>
                 </tr>
                 <tr>
                     <td>활동구분 </td>
-                    <td></td>
+                    <td><input type=text name = "themeSName"/>취미>배우기>커피</td>
                 </tr>
                 <tr>
                     <td>활동지역 </td>
-                    <td></td>
+                    <td><input type=text name = "mapSName"/>서울>영등포구>양평동</td>
                 </tr>
                 <tr>
                     <td>이름 </td>
-                    <td></td>
+                    <td><input type=text name = "memberName"/>비타민씨</td>
                 </tr>
                 <tr>
                     <td>연락처 </td>
-                    <td></td>
+                    <td><input type=text name = "memberPh"/>010777888</td>
                 </tr>
                 <tr>
                     <td>나이 </td>
-                    <td></td>
+                    <td><input type=text name = "memberAge"/>11</td>
                 </tr>
                 <tr>
                     <td>성별 </td>
-                    <td></td>
+                    <td><input type=text name = "gender"/>여</td>
                 </tr>
                 <tr>
                     <td>주소 </td>
-                    <td></td>
+                    <td><input type=text name = "memberAddr"/>서울 ~~</td>
                 </tr>
                 <tr>
                     <td>이메일 </td>
-                    <td></td>
+                    <td><input type=text name = "memberEmail"/>vitaminc@gmail.com</td>
                 </tr>
+                
+                
                 <tr>
                     <td>카카오톡 아이디 </td>
                     <td><input type="text" name = "joinKakaoId"></td>

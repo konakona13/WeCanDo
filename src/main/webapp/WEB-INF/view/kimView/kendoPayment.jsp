@@ -1,8 +1,19 @@
+<%@page import="Command.kimCommand.KendoJoinCommand"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<%@ page import="java.util.*,Model.DTO.*" %>
+<%
+request.getAttribute("kjc");
+%>
 <%
 	response.setCharacterEncoding("utf-8");
- %>       
+ %> 
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,12 +24,21 @@
 <div>
         <h3>활동결제</h3>
         <p>
-        <form name="frm" action="payDone" method="POST">
-            활동번호 :  <br /> 
-            활동이름 :  <br />
-            수     량  :  <br />  
-            결제금액 :  <br />
-                        결제수단 :
+        <form name="frm" action="guestPayAction" method="POST">
+            활동번호 :  <input type=text name = "doNum"/>DO1001<br /> 
+            활동이름 :  <input type=text name = "doName"/>바리스타가 되자<br />
+            수     량  : ${kjc.joinQty}<br />
+            카카오톡 아이디  : ${kjc.joinKakaoId}<br />
+            자기소개  :  ${kjc.joinIntroduce}<br />
+            친구이름  :  ${kjc.friendName}<br />
+            친구연락처  : ${kjc.friendPh}<br />
+            친구나이  :  ${kjc.friendAge}<br />
+            
+            
+            
+     <hr>       
+            결제금액 :  <input type=text name = "buyPrice"/>40000<br />
+            결제수단 :
             <select name="payStyle">
 	            <option value="card">신용카드</option>
 	            <option value="qrcode">카카오 QR결제</option>

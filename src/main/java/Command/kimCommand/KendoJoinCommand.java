@@ -9,9 +9,9 @@ public class KendoJoinCommand {
 	private String joinIntroduce;
 	private Integer joinQty;
 	
-	private String [] friendName;
-	private String [] friendPh;
-	private Integer [] friendAge;
+	private String friendName;
+	private String friendPh;
+	private Integer friendAge;
 	
 	
 	public String getJoinKakaoId() {
@@ -33,22 +33,22 @@ public class KendoJoinCommand {
 		this.joinQty = joinQty;
 	}
 	
-	public String[] getFriendName() {
+	public String getFriendName() {
 		return friendName;
 	}
-	public void setFriendName(String[] friendName) {
+	public void setFriendName(String friendName) {
 		this.friendName = friendName;
 	}
-	public String[] getFriendPh() {
+	public String getFriendPh() {
 		return friendPh;
 	}
-	public void setFriendPh(String[] friendPh) {
+	public void setFriendPh(String friendPh) {
 		this.friendPh = friendPh;
 	}
-	public Integer[] getFriendAge() {
+	public Integer getFriendAge() {
 		return friendAge;
 	}
-	public void setFriendAge(Integer[] friendAge) {
+	public void setFriendAge(Integer friendAge) {
 		this.friendAge = friendAge;
 	}
 	
