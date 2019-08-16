@@ -23,7 +23,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title><spring:message code="login.title"/> </title>
+<title>로그인</title>
 <script type="text/javascript" 
 	src="http://code.jquery.com/jquery-latest.js" ></script>
  <script type="text/javascript" 
@@ -118,17 +118,19 @@ commandName="loginCommand">
 		<form:errors path="pw" />
 		<div id = "pwmsg"></div>
 		<td>
-			<input type="button" id="btn1" value="<spring:message code="login.btn"/>" 
+			<input type="button" id="btn1" value="로그인" 
 			padding="15px"/>
+			<!-- 
 			<input type="button" id="btn" value="Ajax를 이용한 전송" 
 			padding="15px"/>
+			 -->
 		</td>
 		</td>
 	</tr>
 	<tr>
 		<td colspan=3>
 			자동로그인<input type="checkbox" name="autoLogin" value="auto"/>
-			<a href="terms" >회원 가입</a>&nbsp;
+			<a href="memberJoin" >회원 가입</a>&nbsp;
 			<a href="#" >아이디찾기/비밀번호찾기</a>
 		</td>
 	<tr>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="LEE-Mapper">
+	<cache />
+	<insert id="memberInsert" parameterType="Member">
+		insert into
+		member(MEMBER_NUM,MEMBER_ID,MEMBER_PW,MEMBER_NAME,MEMBER_PH,
+		MEMBER_ADDR,MEMBER_EMAIL,GENDER,MEMBER_PHOTO,MEMBER_BIRTH,
+		MEMBER_STATUS)
+		values ('NM'|| MEMBER_NUM_seq.nextval,
+		#{memberId},#{memberPw},#{memberName}, #{memberPh1}
+		, #{addr},
+		#{email},#{gender}, '임시', #{memberBir}, '정상' )
+	</insert>
+	<sql id="basecolumn">
+		MEMBER_NUM, MEMBER_NAME, MEMBER_BIR, MEMBER_PH1,
+		MEMBER_PH2,
+		EMAIL, ADDR, GENDER, MEMBER_ID, MEMBER_PW, MEMBER_REG_DATE
+	</sql>
+	<resultMap type="Member" id="baseMember">
+		<id column="MEMBER_NUM" jdbcType="VARCHAR" property="memberNum" />
+		<result column="MEMBER_NAME" jdbcType="VARCHAR"
+			property="memberName" />
+		<result column="MEMBER_BIR" jdbcType="TIMESTAMP"
+			property="memberBir" />
+		<result column="MEMBER_PH1" jdbcType="BIGINT"
+			property="memberPh1" />
+		<result column="EMAIL" jdbcType="VARCHAR" property="email" />
+		<result column="ADDR" jdbcType="VARCHAR" property="addr" />
+		<result column="GENDER" jdbcType="VARCHAR" property="gender" />
+		<result column="MEMBER_ID" jdbcType="VARCHAR"
+			property="memberId" />
+		<result column="MEMBER_PW" jdbcType="VARCHAR"
+			property="memberPw" />
+	</resultMap>
+</mapper>

@@ -4,6 +4,6 @@
 <configuration>
 	<typeAliases>
 		<!-- <typeAlias type="Model.DTO.Member" alias="Member"/> -->
-		
+		<typeAlias type="Model.DTO.LEEDTO.Member" alias="Member"/> 
 	</typeAliases>
 </configuration>
