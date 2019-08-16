@@ -7,5 +7,7 @@
 
 	<bean id="sessionRepository"
 		class="Repository.LEERepository.SessionRepository" />
-<bean id = "member"  class="Model.DTO.LEEDTO.Member" />
+	<bean id="member" class="Model.DTO.LEEDTO.Member" />
+	<bean id="tbFileSessionRepository"
+		class="Repository.LEERepository.TbFileSessionRepository" />
 </beans>

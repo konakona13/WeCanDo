@@ -5,8 +5,8 @@
 			http://www.springframework.org/schema/beans/spring-beans.xsd
 			">
 
-
 	<bean id="memberJoinService"
 		class="Service.LEEService.MemberJoinService" />
-
+	<bean id="reportSubmissionService"
+		class="Service.LEEService.ReportSubmissionService" />
 </beans>

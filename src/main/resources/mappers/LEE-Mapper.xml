@@ -11,7 +11,7 @@
 		values ('NM'|| MEMBER_NUM_seq.nextval,
 		#{memberId},#{memberPw},#{memberName}, #{memberPh1}
 		, #{addr},
-		#{email},#{gender}, '임시', #{memberBir}, '정상' )
+		#{email},#{gender}, #{fileName}, #{memberBir}, '정상' )
 	</insert>
 	<sql id="basecolumn">
 		MEMBER_NUM, MEMBER_NAME, MEMBER_BIR, MEMBER_PH1,
@@ -34,4 +34,11 @@
 		<result column="MEMBER_PW" jdbcType="VARCHAR"
 			property="memberPw" />
 	</resultMap>
+	
+	<insert id="fileInsert" parameterType="TbFile">
+		insert into TB_FILE ( IDX , BOARD_IDX, ORIGINAL_FILE_NAME
+		, STORED_FILE_NAME, FILE_SIZE, CREA_DTM,CREA_ID ) 
+		 values (MEMBER_NUM_seq.CURRVAL,#{boardIdx},#{originalFileName},
+		 #{storedFileName},#{fileSize},sysdate,#{memId})
+	</insert>
 </mapper>

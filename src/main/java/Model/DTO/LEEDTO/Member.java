@@ -13,7 +13,7 @@ public class Member {
 	private String gender;
 	private String memberId;
 	private String memberPw;
-	private String file;
+	private String fileName;
 
 	public Long getMemberNum() {
 		return memberNum;
@@ -95,11 +95,12 @@ public class Member {
 		this.memberPw = memberPw;
 	}
 
-	public String getFile() {
-		return file;
+	public String getFileName() {
+		return fileName;
 	}
 
-	public void setFile(String file) {
-		this.file = file;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
+
 }

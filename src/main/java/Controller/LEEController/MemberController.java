@@ -10,9 +10,11 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import Command.LEECommand.MemberJoinCommand;
 import Service.LEEService.MemberJoinService;
+import Service.LEEService.ReportSubmissionService;
 import Validator.RegisterRequestValidator;
 
 @Controller
@@ -20,6 +22,8 @@ public class MemberController {
 
 	@Autowired
 	private MemberJoinService memberJoinService;
+	@Autowired
+	private ReportSubmissionService reportSubmissionService;
 
 	@RequestMapping("/loginmain")
 	public String mainView() {
@@ -33,14 +37,16 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/MemberJoinAction", method = RequestMethod.POST)
-	public String memberJoinAction(Model model, MemberJoinCommand memberJoinCommand, Errors errors) {
+	public String memberJoinAction(Model model, MemberJoinCommand memberJoinCommand, Errors errors,
+			@RequestParam("id1") String memId, @RequestParam("profile") MultipartFile report,
+			HttpServletRequest request) {
 		String path = "";
 		new RegisterRequestValidator().validate(memberJoinCommand, errors);
 		if (errors.hasErrors()) {
 			return "LEEview/memberForm";
 		}
 		try {
-			path = memberJoinService.memberInsert(model, memberJoinCommand);
+			path = memberJoinService.memberInsert(model, memberJoinCommand, memId, report, request);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

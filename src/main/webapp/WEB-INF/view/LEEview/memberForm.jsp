@@ -81,7 +81,7 @@ $(function(){
 	<tr><td width = 200 >
 		<b>* 아이디 </b></td>
 		<td width = 400 >
-			<form:input path="id1" id = "id1" 
+			<form:input path="id1" id = "id1"  name="id1"
 				size = "12" maxlength="10"/>
 			<input type="button" value="중복확인" id = "confirmId" />
 			<div id = "msg"></div>
@@ -139,7 +139,11 @@ $(function(){
 				id = "userPh1" size = "30" maxlength="28"/>
 		</td>
 	</tr>
-
+	<tr><td width = 200 ><b>* 프로필사진 </b></td>
+		<td width = 400 >
+			<input type="file" name = "profile" size = "30" />
+		</td>
+	</tr>
 	<tr>
 		<td colspan=2> 
 			<input type ="submit" value="가입" id="submit1" />
