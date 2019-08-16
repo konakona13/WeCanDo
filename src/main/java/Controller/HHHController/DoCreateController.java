@@ -12,7 +12,7 @@ public class DoCreateController
 	@RequestMapping("/HDO")
 	public String HDO(Model model)
 	{
-		System.out.println("HDO컨트롤러");
+		System.out.println("HDO컨트롤러111");
 		return "HHHview/startrotjf";
 	}
 	
