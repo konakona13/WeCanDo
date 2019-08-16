@@ -11,7 +11,7 @@
 <table>
 <form id="frm" name="frm" method="POST">
 <tr align="center" valign="middle">
-      <td colspan="3">상품 목록</td>
+      <td colspan="3">내 상품 목록</td>
       <td align=right>
          <font size=2>${ReadCountUpdate}</font>
       </td>
