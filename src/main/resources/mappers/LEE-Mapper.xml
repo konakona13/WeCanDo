@@ -14,31 +14,67 @@
 		#{email},#{gender}, #{fileName}, #{memberBir}, '정상' )
 	</insert>
 	<sql id="basecolumn">
-		MEMBER_NUM, MEMBER_NAME, MEMBER_BIR, MEMBER_PH1,
-		MEMBER_PH2,
-		EMAIL, ADDR, GENDER, MEMBER_ID, MEMBER_PW, MEMBER_REG_DATE
+		MEMBER_NUM,MEMBER_ID,MEMBER_PW,MEMBER_NAME,MEMBER_PH,
+		MEMBER_ADDR,MEMBER_EMAIL,GENDER,MEMBER_PHOTO,MEMBER_BIRTH,
+		MEMBER_STATUS
 	</sql>
 	<resultMap type="Member" id="baseMember">
 		<id column="MEMBER_NUM" jdbcType="VARCHAR" property="memberNum" />
 		<result column="MEMBER_NAME" jdbcType="VARCHAR"
 			property="memberName" />
-		<result column="MEMBER_BIR" jdbcType="TIMESTAMP"
+		<result column="MEMBER_BIRTH" jdbcType="TIMESTAMP"
 			property="memberBir" />
-		<result column="MEMBER_PH1" jdbcType="BIGINT"
+		<result column="MEMBER_PH" jdbcType="BIGINT"
 			property="memberPh1" />
-		<result column="EMAIL" jdbcType="VARCHAR" property="email" />
-		<result column="ADDR" jdbcType="VARCHAR" property="addr" />
+		<result column="MEMBER_EMAIL" jdbcType="VARCHAR"
+			property="email" />
+		<result column="MEMBER_ADDR" jdbcType="VARCHAR" property="addr" />
 		<result column="GENDER" jdbcType="VARCHAR" property="gender" />
+		<result column="MEMBER_PHOTO" jdbcType="VARCHAR"
+			property="fileName" />
+		<result column="MEMBER_STATUS" jdbcType="VARCHAR"
+			property="status" />
 		<result column="MEMBER_ID" jdbcType="VARCHAR"
 			property="memberId" />
 		<result column="MEMBER_PW" jdbcType="VARCHAR"
 			property="memberPw" />
 	</resultMap>
 	
+	<resultMap type="Member" id="imgFile">
+		<result column="STORED_FILE_NAME" jdbcType="VARCHAR"
+			property="fileName" />
+	</resultMap>
+
 	<insert id="fileInsert" parameterType="TbFile">
-		insert into TB_FILE ( IDX , BOARD_IDX, ORIGINAL_FILE_NAME
-		, STORED_FILE_NAME, FILE_SIZE, CREA_DTM,CREA_ID ) 
-		 values (MEMBER_NUM_seq.CURRVAL,#{boardIdx},#{originalFileName},
-		 #{storedFileName},#{fileSize},sysdate,#{memId})
+		insert into TB_FILE ( IDX
+		, BOARD_IDX, ORIGINAL_FILE_NAME
+		, STORED_FILE_NAME, FILE_SIZE,
+		CREA_DTM,CREA_ID )
+		values
+		(MEMBER_NUM_seq.CURRVAL,#{boardIdx},#{originalFileName},
+		#{storedFileName},#{fileSize},sysdate,#{memId})
 	</insert>
+
+	<select id="userCheck" parameterType="Member"
+		resultMap="baseMember">
+		select
+		<include refid="basecolumn" />
+		from member
+		where member_id = #{memberId} and member_pw = #{memberPw}
+	</select>
+	<select id="userCheck1" parameterType="Member"
+		resultMap="baseMember">
+		select
+		<include refid="basecolumn" />
+		from member
+		where member_id = #{memberId}
+	</select>
+	<select id="getOriginalFileName" parameterType="Member"
+		resultMap="imgFile">
+		select STORED_FILE_NAME
+		from member m, TB_file tb
+		where
+		m.member_id = tb.crea_id
+		and member_id = #{memberId}
+	</select>
 </mapper>

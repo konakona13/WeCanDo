@@ -2,11 +2,10 @@ package Service.LEEService;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +28,7 @@ public class ReportSubmissionService {
 	private TbFileSessionRepository tbFileSessionRepository;
 
 	public void report(String memId, MultipartFile report, Model model, HttpServletRequest request,
-			MemberJoinCommand memberJoinCommand) throws IllegalStateException, IOException {
+			MemberJoinCommand memberJoinCommand, HttpSession session) throws IllegalStateException, IOException {
 		filePath = "WEB-INF\\view\\LEEview\\upload\\";
 		realPath = request.getServletContext().getRealPath(filePath);
 		// realPath =

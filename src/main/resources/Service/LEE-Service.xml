@@ -9,4 +9,8 @@
 		class="Service.LEEService.MemberJoinService" />
 	<bean id="reportSubmissionService"
 		class="Service.LEEService.ReportSubmissionService" />
+	<bean id="memberLoginService"
+		class="Service.LEEService.MemberLoginService" />
+	<bean id="memberLogoutService"
+		class="Service.LEEService.MemberLogoutService" />
 </beans>

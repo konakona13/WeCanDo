@@ -148,7 +148,7 @@ $(function(){
 		<td colspan=2> 
 			<input type ="submit" value="가입" id="submit1" />
 			<input type ="button" value="취소"	
-				onclick="javascript:location.href='main'" />
+				onclick="javascript:location.href='loginmain'" />
 		</td>
 	</tr>
 	</table>

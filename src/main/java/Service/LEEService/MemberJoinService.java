@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,14 +22,14 @@ public class MemberJoinService {
 	private SessionRepository sessionRepository;
 	@Autowired
 	private ReportSubmissionService reportSubmissionService;
-	
+
 	private SimpleDateFormat dt = new SimpleDateFormat("yymmdd");
 	private Date date;
 	private Timestamp tst;
 	private String path;
 
 	public String memberInsert(Model model, MemberJoinCommand mjc, String memId, MultipartFile report,
-			HttpServletRequest request) throws Exception {
+			HttpServletRequest request, HttpSession session) throws Exception {
 		// TODO Auto-generated method stub
 		Member mem = new Member();
 		mem.setMemberId(mjc.getId1());
@@ -46,7 +47,7 @@ public class MemberJoinService {
 		mem.setFileName(report.getOriginalFilename());
 
 		sessionRepository.insertMem(mem);
-		reportSubmissionService.report(memId, report, model, request, mjc);
+		reportSubmissionService.report(memId, report, model, request, mjc, session);
 		path = "LEEview/mainForm";
 		return path;
 	}

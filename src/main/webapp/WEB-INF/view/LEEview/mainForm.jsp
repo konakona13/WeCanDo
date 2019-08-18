@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" 
+			uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	String msg111 = request.getParameter("msg111");
 	if(msg111 == null) msg111 = "";
@@ -18,6 +20,10 @@
 			}
 		}
 	}
+	String memName = (String)session.getAttribute("memName");
+	String memId1 = (String)session.getAttribute("memId1");
+	String profile = (String)session.getAttribute("profile");
+	String memNum = (String)session.getAttribute("memNum");
 %>
 <!DOCTYPE html>
 <html>
@@ -130,17 +136,30 @@ commandName="loginCommand">
 	<tr>
 		<td colspan=3>
 			자동로그인<input type="checkbox" name="autoLogin" value="auto"/>
-			<a href="memberJoin" >회원 가입</a>&nbsp;
-			<a href="#" >아이디찾기/비밀번호찾기</a>
+			<a href="memberJoin" >일반회원 가입</a>&nbsp;
+			<a href="companyJoin" >기업회원 가입</a>
 		</td>
 	<tr>
 </table>
 </form:form>
-<% }else{ %>
-<!-- 로그인 된 후의 화면 -->
+<% }else if(session.getAttribute("memid")!= null && memNum.substring(0, 2).equals("NM")){ %>
+<!-- 로그인 된 후의 화면(일반회원) -->
+<%= memNum.substring(0, 2) %> : 일반회원코드 추출<br>
 <%= session.getAttribute("memid") %> 님 환영합니다.<br />
-<a href="memberModify" >정보수정</a>
+<table border="1">
+<tr>
+<td rowspan="3" width="200" align="center"><img src="LEEview/upload/<%=profile %>" /></td><td width="400">일반회원 : <%=memNum %></td>
+</tr>
+<tr>
+<td>아이디 : <%= memId1 %></td>
+</tr>
+<tr>
+<td>이름 : <%= memName %></td>
+</tr>
+</table>
 <a href="Logout" >로그아웃</a>
+<!-- 
+<a href="memberModify" >정보수정</a>
 <a href="edit/pwModify" >비밀번호변경</a>
 <a href="board_list" >게시글</a>
 <a href="member_list" >회원리스트</a>
@@ -151,6 +170,36 @@ commandName="loginCommand">
 <a href="emailAll" >전체 메일 보내기</a>
 <a href="ajaxForm" >Ajax</a>
 <a href= "domino" >도미노 속성</a>
-<% } %>
+ -->
+<% }else if(session.getAttribute("memid")!= null && memNum.substring(0, 2).equals("CO")){ %>
+<!-- 로그인 된 후의 화면(기업회원) -->
+<%= memNum.substring(0, 2) %> : 일반회원코드 추출<br>
+<%= session.getAttribute("memid") %> 님 환영합니다.<br />
+<table border="1">
+<tr>
+<td rowspan="3" width="200" align="center"><img src="LEEview/upload/<%=profile %>" /></td><td width="400">일반회원 : <%=memNum %></td>
+</tr>
+<tr>
+<td>아이디 : <%= memId1 %></td>
+</tr>
+<tr>
+<td>이름 : <%= memName %></td>
+</tr>
+</table>
+<a href="Logout" >로그아웃</a>
+<!-- 
+<a href="memberModify" >정보수정</a>
+<a href="edit/pwModify" >비밀번호변경</a>
+<a href="board_list" >게시글</a>
+<a href="member_list" >회원리스트</a>
+<a href="goods_list" >상품리스트</a>
+<a href="survey" >설문지</a>
+<a href="submission" >파일 업로드</a>
+<a href="email" >메일보내기</a>
+<a href="emailAll" >전체 메일 보내기</a>
+<a href="ajaxForm" >Ajax</a>
+<a href= "domino" >도미노 속성</a>
+ -->
+ <%} %>
 </body>
 </html>

@@ -1,10 +1,11 @@
 package Controller.LEEController;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,9 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import Command.LEECommand.LoginCommand;
 import Command.LEECommand.MemberJoinCommand;
 import Service.LEEService.MemberJoinService;
-import Service.LEEService.ReportSubmissionService;
+import Service.LEEService.MemberLoginService;
+import Service.LEEService.MemberLogoutService;
+import Validator.LoginCommandValidator;
 import Validator.RegisterRequestValidator;
 
 @Controller
@@ -23,7 +27,9 @@ public class MemberController {
 	@Autowired
 	private MemberJoinService memberJoinService;
 	@Autowired
-	private ReportSubmissionService reportSubmissionService;
+	private MemberLoginService memberLoginService;
+	@Autowired
+	private MemberLogoutService memberLogoutService;
 
 	@RequestMapping("/loginmain")
 	public String mainView() {
@@ -39,18 +45,34 @@ public class MemberController {
 	@RequestMapping(value = "/MemberJoinAction", method = RequestMethod.POST)
 	public String memberJoinAction(Model model, MemberJoinCommand memberJoinCommand, Errors errors,
 			@RequestParam("id1") String memId, @RequestParam("profile") MultipartFile report,
-			HttpServletRequest request) {
+			HttpServletRequest request, HttpSession session) {
 		String path = "";
 		new RegisterRequestValidator().validate(memberJoinCommand, errors);
 		if (errors.hasErrors()) {
 			return "LEEview/memberForm";
 		}
 		try {
-			path = memberJoinService.memberInsert(model, memberJoinCommand, memId, report, request);
+			path = memberJoinService.memberInsert(model, memberJoinCommand, memId, report, request, session);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return path;
+	}
+
+	@RequestMapping("loginPro")
+	public String loginPro(Model model, LoginCommand loginCommand, HttpSession session, HttpServletResponse response,
+			Errors errors) {
+		new LoginCommandValidator().validate(loginCommand, errors);
+		if (errors.hasErrors())
+			return "redirect:index.html"; // 수정
+		String path = memberLoginService.loginPro(model, loginCommand, session, response);
+		return path;
+	}
+
+	@RequestMapping("Logout")
+	public String logout(HttpSession session, HttpServletResponse response) {
+		memberLogoutService.logout(session, response);
+		return "redirect:loginmain";
 	}
 
 	@RequestMapping("/confirmId")

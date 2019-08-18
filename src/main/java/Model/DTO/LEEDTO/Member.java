@@ -1,9 +1,11 @@
 package Model.DTO.LEEDTO;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class Member {
-	private Long memberNum;
+@SuppressWarnings("serial")
+public class Member implements Serializable {
+	private String memberNum;
 	private String memberName;
 	private Timestamp memberBir;
 	private Long memberPh1;
@@ -14,12 +16,21 @@ public class Member {
 	private String memberId;
 	private String memberPw;
 	private String fileName;
+	private String status;
 
-	public Long getMemberNum() {
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getMemberNum() {
 		return memberNum;
 	}
 
-	public void setMemberNum(Long memberNum) {
+	public void setMemberNum(String memberNum) {
 		this.memberNum = memberNum;
 	}
 
