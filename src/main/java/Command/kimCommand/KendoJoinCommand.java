@@ -1,19 +1,19 @@
 package Command.kimCommand;
 
-import java.io.Serializable;
 import java.sql.Clob;
-
 import java.sql.Timestamp;
-@SuppressWarnings("serial")
-public class KendoJoinCommand implements Serializable{
+
+public class KendoJoinCommand {
 
 	private String joinKakaoId;
 	private String joinIntroduce;
 	private Integer joinQty;
 	
 	private String friendName;
-	private Integer friendPh;
+	private String friendPh;
 	private Integer friendAge;
+	
+	
 	public String getJoinKakaoId() {
 		return joinKakaoId;
 	}
@@ -32,16 +32,17 @@ public class KendoJoinCommand implements Serializable{
 	public void setJoinQty(Integer joinQty) {
 		this.joinQty = joinQty;
 	}
+	
 	public String getFriendName() {
 		return friendName;
 	}
 	public void setFriendName(String friendName) {
 		this.friendName = friendName;
 	}
-	public Integer getFriendPh() {
+	public String getFriendPh() {
 		return friendPh;
 	}
-	public void setFriendPh(Integer friendPh) {
+	public void setFriendPh(String friendPh) {
 		this.friendPh = friendPh;
 	}
 	public Integer getFriendAge() {
@@ -50,9 +51,6 @@ public class KendoJoinCommand implements Serializable{
 	public void setFriendAge(Integer friendAge) {
 		this.friendAge = friendAge;
 	}
-	
-	
-
 	
 	
 	

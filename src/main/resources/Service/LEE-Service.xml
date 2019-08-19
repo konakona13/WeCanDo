@@ -13,11 +13,8 @@
 		class="Service.LEEService.MemberLoginService" />
 	<bean id="memberLogoutService"
 		class="Service.LEEService.MemberLogoutService" />
-<<<<<<< HEAD
 	<bean id="companyJoinService"
 		class="Service.LEEService.CompanyJoinService" />
 	<bean id="companyLoginService"
 		class="Service.LEEService.CompanyLoginService" />
-=======
->>>>>>> 619eeda981071cd643abe736ac581ed2ac2e14ca
 </beans>

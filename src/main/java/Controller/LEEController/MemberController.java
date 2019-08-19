@@ -13,13 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import Command.LEECommand.CompanyJoinCommand;
 import Command.LEECommand.LoginCommand;
 import Command.LEECommand.MemberJoinCommand;
-<<<<<<< HEAD
 import Service.LEEService.CompanyJoinService;
 import Service.LEEService.CompanyLoginService;
-=======
->>>>>>> 619eeda981071cd643abe736ac581ed2ac2e14ca
 import Service.LEEService.MemberJoinService;
 import Service.LEEService.MemberLoginService;
 import Service.LEEService.MemberLogoutService;
@@ -31,6 +29,8 @@ public class MemberController {
 
 	@Autowired
 	private MemberJoinService memberJoinService;
+	@Autowired
+	private CompanyJoinService companyJoinService;
 	@Autowired
 	private MemberLoginService memberLoginService;
 	@Autowired
@@ -48,15 +48,12 @@ public class MemberController {
 		model.addAttribute("memberJoinCommand", new MemberJoinCommand());
 		return "LEEview/memberForm";
 	}
-<<<<<<< HEAD
 
 	@RequestMapping("/companyJoin")
 	public String joinCompany(Model model) {
 		model.addAttribute("companyJoinCommand", new CompanyJoinCommand());
 		return "LEEview/companyForm";
 	}
-=======
->>>>>>> 619eeda981071cd643abe736ac581ed2ac2e14ca
 
 	@RequestMapping(value = "/MemberJoinAction", method = RequestMethod.POST)
 	public String memberJoinAction(Model model, MemberJoinCommand memberJoinCommand, Errors errors,
@@ -74,7 +71,6 @@ public class MemberController {
 		}
 		return path;
 	}
-<<<<<<< HEAD
 
 	@RequestMapping(value = "/CompanyJoinAction", method = RequestMethod.POST)
 	public String companyJoinAction(Model model, CompanyJoinCommand companyJoinCommand, Errors errors,
@@ -91,8 +87,6 @@ public class MemberController {
 		}
 		return path;
 	}
-=======
->>>>>>> 619eeda981071cd643abe736ac581ed2ac2e14ca
 
 	@RequestMapping("loginPro")
 	public String loginPro(Model model, LoginCommand loginCommand, HttpSession session, HttpServletResponse response,

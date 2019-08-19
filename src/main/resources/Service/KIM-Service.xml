@@ -11,6 +11,5 @@
 	<!-- <bean id = "member"  class="Model.DTO.Member" /> -->
 	
 <bean id = "kendoJoinService" class= "Service.kimService.KendoJoinService"/>
-<bean id = "setterService" class= "Service.kimService.LetterService"/>
 	
 </beans>
