@@ -17,7 +17,7 @@ public class SessionRepository {
 		String statement = namespace + ".memberInsert";
 		sqlSession.insert(statement, mem);
 	}
-
+	/*
 	public Member userCheck1(String memberId, String memberPw) {
 		Member member = new Member();
 		member.setMemberId(memberId);
@@ -26,7 +26,7 @@ public class SessionRepository {
 		member = sqlSession.selectOne(statement, member);
 		return member;
 	}
-
+	*/
 	public Member userCheck(String memberId, String memberPw) {
 		Member member = new Member();
 		member.setMemberId(memberId);
@@ -40,5 +40,15 @@ public class SessionRepository {
 		// TODO Auto-generated method stub
 		String statement = namespace + ".companyInsert";
 		sqlSession.insert(statement, com);
+	}
+
+	public Company comCheck(String id1, String pw) {
+		// TODO Auto-generated method stub
+		Company company = new Company();
+		company.setCompanyId(id1);
+		company.setCompanyPw(pw);
+		String statement = namespace + ".companyCheck";
+		company = sqlSession.selectOne(statement, company);
+		return company;
 	}
 }
