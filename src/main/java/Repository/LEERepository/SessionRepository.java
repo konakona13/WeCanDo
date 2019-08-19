@@ -32,9 +32,6 @@ public class SessionRepository {
 		member.setMemberPw(memberPw);
 		String statement = namespace + ".userCheck";
 		member = sqlSession.selectOne(statement, member);
-		statement = namespace + ".getOriginalFileName";
-		Member member1 = sqlSession.selectOne(statement, member);
-		member.setFileName(member1.getFileName());
 		return member;
 	}
 }

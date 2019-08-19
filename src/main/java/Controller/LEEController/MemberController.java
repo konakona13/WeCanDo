@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import Command.LEECommand.CompanyJoinCommand;
 import Command.LEECommand.LoginCommand;
 import Command.LEECommand.MemberJoinCommand;
+import Service.LEEService.CompanyJoinService;
 import Service.LEEService.MemberJoinService;
 import Service.LEEService.MemberLoginService;
 import Service.LEEService.MemberLogoutService;
@@ -26,6 +28,8 @@ public class MemberController {
 
 	@Autowired
 	private MemberJoinService memberJoinService;
+	@Autowired
+	private CompanyJoinService companyJoinService;
 	@Autowired
 	private MemberLoginService memberLoginService;
 	@Autowired
@@ -41,6 +45,12 @@ public class MemberController {
 		model.addAttribute("memberJoinCommand", new MemberJoinCommand());
 		return "LEEview/memberForm";
 	}
+	
+	@RequestMapping("/companyJoin")
+	public String joinCompany(Model model) {
+		model.addAttribute("companyJoinCommand", new CompanyJoinCommand());
+		return "LEEview/companyForm";
+	}
 
 	@RequestMapping(value = "/MemberJoinAction", method = RequestMethod.POST)
 	public String memberJoinAction(Model model, MemberJoinCommand memberJoinCommand, Errors errors,
@@ -53,6 +63,24 @@ public class MemberController {
 		}
 		try {
 			path = memberJoinService.memberInsert(model, memberJoinCommand, memId, report, request, session);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return path;
+	}
+	
+	@RequestMapping(value = "/CompanyJoinAction", method = RequestMethod.POST)
+	public String companyJoinAction(Model model, CompanyJoinCommand companyJoinCommand, Errors errors,
+			@RequestParam("id1") String comId, HttpServletRequest request, HttpSession session) {
+		String path = "";
+		/*
+		new RegisterRequestValidator().validate(companyJoinCommand, errors);
+		if (errors.hasErrors()) {
+			return "LEEview/memberForm";
+		}
+		*/
+		try {
+			path = companyJoinService.comInsert(model, companyJoinCommand, comId, request, session);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
