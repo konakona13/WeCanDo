@@ -13,4 +13,6 @@
 		class="Service.LEEService.MemberLoginService" />
 	<bean id="memberLogoutService"
 		class="Service.LEEService.MemberLogoutService" />
+	<bean id="companyJoinService"
+		class="Service.LEEService.CompanyJoinService" />
 </beans>

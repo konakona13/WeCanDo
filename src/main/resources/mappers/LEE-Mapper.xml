@@ -40,21 +40,6 @@
 			property="memberPw" />
 	</resultMap>
 	
-	<resultMap type="Member" id="imgFile">
-		<result column="STORED_FILE_NAME" jdbcType="VARCHAR"
-			property="fileName" />
-	</resultMap>
-
-	<insert id="fileInsert" parameterType="TbFile">
-		insert into TB_FILE ( IDX
-		, BOARD_IDX, ORIGINAL_FILE_NAME
-		, STORED_FILE_NAME, FILE_SIZE,
-		CREA_DTM,CREA_ID )
-		values
-		(MEMBER_NUM_seq.CURRVAL,#{boardIdx},#{originalFileName},
-		#{storedFileName},#{fileSize},sysdate,#{memId})
-	</insert>
-
 	<select id="userCheck" parameterType="Member"
 		resultMap="baseMember">
 		select
@@ -68,13 +53,5 @@
 		<include refid="basecolumn" />
 		from member
 		where member_id = #{memberId}
-	</select>
-	<select id="getOriginalFileName" parameterType="Member"
-		resultMap="imgFile">
-		select STORED_FILE_NAME
-		from member m, TB_file tb
-		where
-		m.member_id = tb.crea_id
-		and member_id = #{memberId}
 	</select>
 </mapper>
