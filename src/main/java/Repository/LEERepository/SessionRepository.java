@@ -3,6 +3,7 @@ package Repository.LEERepository;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import Model.DTO.LEEDTO.Company;
 import Model.DTO.LEEDTO.Member;
 
 public class SessionRepository {
@@ -33,5 +34,11 @@ public class SessionRepository {
 		String statement = namespace + ".userCheck";
 		member = sqlSession.selectOne(statement, member);
 		return member;
+	}
+
+	public void insertCompany(Company com) {
+		// TODO Auto-generated method stub
+		String statement = namespace + ".companyInsert";
+		sqlSession.insert(statement, com);
 	}
 }

@@ -1,6 +1,9 @@
 package Model.DTO.LEEDTO;
 
-public class Company {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class Company implements Serializable{
 	private String companyId;
 	private String companyPw;
 	private String companyNum;

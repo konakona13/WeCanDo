@@ -14,6 +14,8 @@ public class CompanyJoinService {
 	@Autowired
 	private SessionRepository sessionRepository;
 
+	private String path;
+
 	public String comInsert(Model model, CompanyJoinCommand cjc, String comId, HttpServletRequest request,
 			HttpSession session) {
 		// TODO Auto-generated method stub
@@ -32,7 +34,7 @@ public class CompanyJoinService {
 		com.setCompanyAcc(cjc.getCompanyAcc());
 		com.setCompanyBank(request.getParameter("companyBank"));
 		com.setCompanyStatus("미승인");
-		sessionRepository.insertMem(mem);
+		sessionRepository.insertCompany(com);
 		path = "LEEview/mainForm";
 		return path;
 	}

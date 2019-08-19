@@ -41,6 +41,7 @@ public class MemberLoginService {
 	 */
 	
 	public String loginPro(Model model, LoginCommand loginCommand, HttpSession session, HttpServletResponse response) {
+		
 		Member member = sessionRepository.userCheck(loginCommand.getId1(), loginCommand.getPw());
 		if (member == null) {
 			model.addAttribute("msg111", "아이디가 존재하지 않습니다.");
