@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
 Built-By: hk_edu04
+<<<<<<< HEAD
 Build-Jdk: 1.8.0_211
+=======
+Build-Jdk: 1.8.0_202
+>>>>>>> 63b875ae17b7352b3f0e018112d31e34fac05d25
 Created-By: Maven Integration for Eclipse
 
