@@ -19,12 +19,15 @@
 		MEMBER_ADDR,MEMBER_EMAIL,GENDER,MEMBER_PHOTO,MEMBER_BIRTH,
 		MEMBER_STATUS
 	</sql>
+<<<<<<< HEAD
 	<sql id="basecolumnCompany">
 		COMPANY_NUM, COMPANY_KIND, COMPANY_ID, COMPANY_PW,
 		COMPANY_BN, COMPANY_NAME, COMPANY_CAP, COMPANY_PH, COMPANY_EMAIL,
 		MANAGER_NAME, COMPANY_ADDR, COMPANY_BANK, COMPANY_ACC, COMPANY_STATUS
 	</sql>
 	
+=======
+>>>>>>> 619eeda981071cd643abe736ac581ed2ac2e14ca
 	<resultMap type="Member" id="baseMember">
 		<id column="MEMBER_NUM" jdbcType="VARCHAR" property="memberNum" />
 		<result column="MEMBER_NAME" jdbcType="VARCHAR"
@@ -46,6 +49,7 @@
 		<result column="MEMBER_PW" jdbcType="VARCHAR"
 			property="memberPw" />
 	</resultMap>
+<<<<<<< HEAD
 
 	<resultMap type="Company" id="baseCompany">
 		<id column="COMPANY_NUM" jdbcType="VARCHAR" property="companyNum" />
@@ -75,7 +79,23 @@
 			property="companyAcc" />
 		<result column="COMPANY_STATUS" jdbcType="VARCHAR"
 			property="companyStatus" />
+=======
+	
+	<resultMap type="Member" id="imgFile">
+		<result column="STORED_FILE_NAME" jdbcType="VARCHAR"
+			property="fileName" />
+>>>>>>> 619eeda981071cd643abe736ac581ed2ac2e14ca
 	</resultMap>
+
+	<insert id="fileInsert" parameterType="TbFile">
+		insert into TB_FILE ( IDX
+		, BOARD_IDX, ORIGINAL_FILE_NAME
+		, STORED_FILE_NAME, FILE_SIZE,
+		CREA_DTM,CREA_ID )
+		values
+		(MEMBER_NUM_seq.CURRVAL,#{boardIdx},#{originalFileName},
+		#{storedFileName},#{fileSize},sysdate,#{memId})
+	</insert>
 
 	<select id="userCheck" parameterType="Member"
 		resultMap="baseMember">
@@ -91,6 +111,7 @@
 		from member
 		where member_id = #{memberId}
 	</select>
+<<<<<<< HEAD
 
 	<insert id="companyInsert" parameterType="Company">
 		insert into company
@@ -113,5 +134,14 @@
 		<include refid="basecolumnCompany" />
 		from company
 		where COMPANY_ID = #{companyId} and COMPANY_PW = #{companyPw}
+=======
+	<select id="getOriginalFileName" parameterType="Member"
+		resultMap="imgFile">
+		select STORED_FILE_NAME
+		from member m, TB_file tb
+		where
+		m.member_id = tb.crea_id
+		and member_id = #{memberId}
+>>>>>>> 619eeda981071cd643abe736ac581ed2ac2e14ca
 	</select>
 </mapper>

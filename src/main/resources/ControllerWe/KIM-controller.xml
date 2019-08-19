@@ -10,5 +10,5 @@
 
 <!-- 	<bean class = "Controller.MemberLogController" /> -->
 <bean class = "Controller.kimController.KendoJoinController" />
-
+<bean class="Controller.kimController.LetterController"/>
 </beans>

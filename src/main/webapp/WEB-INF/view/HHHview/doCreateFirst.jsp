@@ -6,28 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>활동개설신청서</title>
-    <script type="text/javascript" 
- src="http://code.jquery.com/jquery-latest.js" ></script>
-<script type="text/javascript">
-$(function(){
-	$("#selectPlaceBtn").click(function()
-	{
-		var url = "doCreatePlace"
-		open(url,"DP","width=300, height=500");
-	});
-});
-
-
-</script>
-    
-    
-    
+    <title>Document</title>
 </head>
 <body>
     <h1>활동개설신청서?</h1>
        
-        <form action="doCreatePay">
+        <form action="doCreatePlace">
             <p>회원정보</p>
             <p>회원정보</p>
             <p>회원정보</p>
@@ -90,13 +74,6 @@ $(function(){
                 <input type="checkbox" value="dd">렌트카선택
                 <input type="checkbox" value="dd">멘토선택
             </p>
-            
-            <div id="selectPlace">
-            	
-            	장소 : <span>없음</span> 
-            	<input id="selectPlaceBtn" type="button" value="장소선택">
-            
-            </div>
            
             
 
