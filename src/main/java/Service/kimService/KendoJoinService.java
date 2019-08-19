@@ -148,7 +148,7 @@ public class KendoJoinService {
 		
 	}
 
-
+//
 	public String kendoJoinList(Model model) {
 		String path = "";
 
