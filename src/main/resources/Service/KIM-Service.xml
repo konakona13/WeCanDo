@@ -12,5 +12,6 @@
 	
 <bean id = "kendoJoinService" class= "Service.kimService.KendoJoinService"/>
 <bean id = "setterService" class= "Service.kimService.LetterService"/>
+<bean id = "companyRegService" class= "Service.kimService.CompanyRegService"/>
 	
 </beans>

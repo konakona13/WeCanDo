@@ -17,7 +17,7 @@
             결제가 완료되었습니다.
         </p> 
         
-      <a href= "kimView/kendoJoinList"> 결제리스트 </a>
+
       <a href="kim" >메인</a>    
 
     </div>
