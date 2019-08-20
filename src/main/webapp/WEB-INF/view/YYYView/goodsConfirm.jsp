@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,17 +9,21 @@
 </head>
 <body>
 
+
 <table>
 
-<c:if test="${! empty list}">
+<c:if test="${! empty hotList}">
 
 <tr align="center" valign="middle">
-      <td colspan="3">상품 목록</td>
+      <td colspan="4">승인 대기 목록</td>
+      <td align=right>
+         <font size=2>${ReadCountUpdate}</font>
+      </td>
    </tr>
    
    <tr align="center" valign="middle" bordercolor="#333333">
       <td style="font-family:Tahoma;font-size:8pt;" width="8%" height="26">
-         <div align="center">상품번호</div>
+         <div align="center">번호</div>
       </td>
       <td style="font-family:Tahoma;font-size:8pt;" width="50%">
          <div align="center">제목</div>
@@ -29,8 +34,11 @@
       <td style="font-family:Tahoma;font-size:8pt;" width="17%">
          <div align="center">날짜</div>
       </td>
-	  <td style="font-family:Tahoma;font-size:8pt;" width="17%">
-         <div align="center">승인상태</div>
+      <td style="font-family:Tahoma;font-size:8pt;" width="17%">
+         <div align="center">승인</div>
+      </td>
+      <td style="font-family:Tahoma;font-size:8pt;" width="17%">
+         <div align="center">승인 상태</div>
       </td>
    </tr>
    <tr align="right">
@@ -39,36 +47,31 @@
       </td>
    </tr>
 
-<c:forEach var="hotplace" items="${list}">
-   <tr align="center" valign="middle">
+<c:forEach var="hotplace" items="${hotList}">
+   <tr align="center" valign="middle" bordercolor="#333333"
+      onmouseover="this.style.backgroundColor='F8F8F8'"
+      onmouseout="this.style.backgroundColor=''">
       <td height="23" style="font-family:Tahoma;font-size:10pt;">
-         ${list.goodsNum}
+         ${hotplace.hpNum}
       </td>
       
       <td style="font-family:Tahoma;font-size:10pt;">
          <div align="left">
 
          
-         <a href="./GoodsRegDetail.goods?num=${list.goodsNum}">
-         <img  width=50% alt="" src="YYYView/fileupload/${list2.goodsImgName}">&nbsp;
-		 ${list.goodsName }         
+         <a href="./HpMainView.hp?num=${hotplace.hpNum}">
+         <img  width=50% alt="" src="HotplaceView/fileupload/${hotplace.hpFile }">&nbsp;
+		 ${hotplace.hpSubject }         
          </a>
          </div>
       </td>
       
       <td style="font-family:Tahoma;font-size:10pt;">
-         <div align="center">${list.memberId}</div>
+         <div align="center">${hotplace.memberId}</div>
       </td>
       <td style="font-family:Tahoma;font-size:10pt;">
          <div align="center">
-         <fmt:formatDate value="${list.companyNum}" 
-				type="Date" />
-         </div>
-      </td>   
-            <td style="font-family:Tahoma;font-size:10pt;">
-         <div align="center">
-         <fmt:formatDate value="${list.companyNum}" 
-				type="Date" />
+         <fmt:formatDate value="${hotplace.hpDate }"type="Date" />
          </div>
       </td>   
    </tr>
@@ -77,5 +80,6 @@
 
  </table>
  
+
 </body>
 </html>
