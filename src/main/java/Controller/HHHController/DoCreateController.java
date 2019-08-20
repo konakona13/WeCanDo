@@ -2,13 +2,19 @@ package Controller.HHHController;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import Service.HHHService.DoCreateService;
+
 @Controller
 public class DoCreateController
 {
+	@Autowired
+	DoCreateService doCreateService;
+	
 	@RequestMapping("/HDO")
 	public String HDO(Model model)
 	{
@@ -24,10 +30,9 @@ public class DoCreateController
 	}
 	
 	@RequestMapping("/doCreatePlace")
-	public String doCreatePlace(Model model, HttpSession session)
+	public String doCreatePlace(Model model)
 	{
-		
-		return "HHHview/doCreatePlace";
+		return doCreateService.getGoodsList(model);
 	}
 	
 	@RequestMapping("/doCreatePay")

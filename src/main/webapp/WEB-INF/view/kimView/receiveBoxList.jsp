@@ -6,7 +6,7 @@
 
 <%
 	response.setCharacterEncoding("utf-8");
- %>     
+ %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-admin 받은 편지함
+받은 편지함
 
 <div>
 
@@ -26,7 +26,7 @@ admin 받은 편지함
 			<td>내용 </td>
 			
 		</tr>
-<!--<c:if test="${! empty receiveBox}"> -->		
+<!--<c:if test="${! empty letters}"> -->		
 	<c:forEach var="receiveBox" items="${receiveBox}">
 		<tr>
 			<td>${receiveBox.letterDate}</td>

@@ -14,7 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-admin 보낸 편지함
+보낸 편지함
 
 <div>
 
