@@ -15,11 +15,11 @@ public class DominoRepository {
 	
 	@Autowired
 	private SqlSession sqlSession;
-	private final String namespace = "DominoRepository";
+	private final String namespace = "YYY-Mapper";
 
 
 	public List<MapLarge> selectMapL() {
-		String statement = namespace + ".selectAaTable";
+		String statement = namespace + ".selectMapLarge";
 		List<MapLarge> result = sqlSession.selectList(statement);
 		
 		return result;
@@ -27,14 +27,14 @@ public class DominoRepository {
 
 
 	public List<MapMedium> selectMapM(MapLarge large) {
-		String statement = namespace + ".selectBbTable";
+		String statement = namespace + ".selectMapMedium";
 		List<MapMedium> list = sqlSession.selectList(statement, large);
 		
 		return list;
 	}
 
 	public List<MapSmall> selectMapS(MapMedium medium) {
-		String statement = namespace + ".selectCcTable";
+		String statement = namespace + ".selectMapSmall";
 		List<MapSmall> list = sqlSession.selectList(statement, medium);
 		
 		return list;
