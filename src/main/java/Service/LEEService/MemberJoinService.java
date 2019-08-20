@@ -44,10 +44,10 @@ public class MemberJoinService {
 		mem.setEmail(mjc.getUserEmail());
 		mem.setAddr(mjc.getUserAddr());
 		mem.setMemberPh1(Long.valueOf(mjc.getUserPh1()));
+		mem.setFileName(report.getOriginalFilename());
 
-		String storedFileName = reportSubmissionService.report(memId, report, model, request, mjc, session);
-		mem.setFileName(storedFileName);
 		sessionRepository.insertMem(mem);
+		reportSubmissionService.report(memId, report, model, request, mjc, session);
 		path = "LEEview/mainForm";
 		return path;
 	}

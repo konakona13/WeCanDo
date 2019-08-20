@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>일반회원 가입</title>
+<title>회원 가입</title>
 <script type="text/javascript" 
  src="http://code.jquery.com/jquery-latest.js" ></script>
 <script type="text/javascript">

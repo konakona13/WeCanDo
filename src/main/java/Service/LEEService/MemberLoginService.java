@@ -18,27 +18,38 @@ public class MemberLoginService {
 	@Autowired
 	private SessionRepository sessionRepository;
 	/*
-	 * public String loginPro1(Model model, LoginCommand loginCommand, HttpSession
-	 * session, HttpServletResponse response) { System.out.println("bbbbb"); Member
-	 * member = sessionRepository.userCheck1(loginCommand.getId1(),
-	 * loginCommand.getPw()); int result = 0; if (member == null) { result = 1; }
-	 * else { if (member.getMemberPw().equals(loginCommand.getPw())) { result = 3;
-	 * AuthInfo authInfo = new AuthInfo(member.getMemberId(), member.getEmail(),
-	 * member.getMemberName()); session.setAttribute("memid", authInfo); } else {
-	 * result = 2; } } model.addAttribute("result", result); String idStore =
-	 * loginCommand.getIdStore(); setCookie(idStore, response, loginCommand); return
-	 * "main/loginPro"; }
+	public String loginPro1(Model model, LoginCommand loginCommand, HttpSession session, HttpServletResponse response) {
+		System.out.println("bbbbb");
+		Member member = sessionRepository.userCheck1(loginCommand.getId1(), loginCommand.getPw());
+		int result = 0;
+		if (member == null) {
+			result = 1;
+		} else {
+			if (member.getMemberPw().equals(loginCommand.getPw())) {
+				result = 3;
+				AuthInfo authInfo = new AuthInfo(member.getMemberId(), member.getEmail(), member.getMemberName());
+				session.setAttribute("memid", authInfo);
+			} else {
+				result = 2;
+			}
+		}
+		model.addAttribute("result", result);
+		String idStore = loginCommand.getIdStore();
+		setCookie(idStore, response, loginCommand);
+		return "main/loginPro";
+	}
 	 */
-
+	
 	public String loginPro(Model model, LoginCommand loginCommand, HttpSession session, HttpServletResponse response) {
 		Member member = sessionRepository.userCheck(loginCommand.getId1(), loginCommand.getPw());
 		if (member == null) {
 			model.addAttribute("msg111", "아이디가 존재하지 않습니다.");
 		} else {
 			AuthInfo authInfo = new AuthInfo(member.getMemberId(), member.getEmail(), member.getMemberName());
-			authInfo.setProfile(member.getFileName());
-			authInfo.setMemNum(member.getMemberNum());
-			session.setAttribute("memAuth", authInfo);
+			session.setAttribute("memid", authInfo);
+			session.setAttribute("memId1",member.getMemberId());
+			session.setAttribute("memName", member.getMemberName());
+			session.setAttribute("profile", member.getFileName());
 			session.setAttribute("memNum", member.getMemberNum());
 		}
 		String idStore = loginCommand.getIdStore();

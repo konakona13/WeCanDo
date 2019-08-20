@@ -9,7 +9,7 @@
 >
 	
 	<!-- <bean id = "member"  class="Model.DTO.Member" /> -->
-	<bean id = "doCreateService"  class="Service.HHHService.DoCreateService" />
+	
 
 	
 </beans>

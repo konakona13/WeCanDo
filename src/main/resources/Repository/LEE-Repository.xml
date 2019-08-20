@@ -8,5 +8,6 @@
 	<bean id="sessionRepository"
 		class="Repository.LEERepository.SessionRepository" />
 	<bean id="member" class="Model.DTO.LEEDTO.Member" />
-	<bean id="company" class="Model.DTO.LEEDTO.Company" />
+	<bean id="tbFileSessionRepository"
+		class="Repository.LEERepository.TbFileSessionRepository" />
 </beans>
