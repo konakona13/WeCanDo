@@ -1,8 +1,6 @@
 package Model.DTO.YYYDTO;
 
-import java.io.Serializable;
-
-public class PlaceGoods implements Serializable {
+public class PlaceGoods {
 	
 	String goodsNum;
 	String mapLNum;

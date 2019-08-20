@@ -9,9 +9,7 @@
 >
 	
 	
-	 <bean id = "placeReg"  class="Service.YYYService.PlaceRegService" />
-	 <bean id = "domino"  class="Service.YYYService.DominoService" />
-	 <bean id = "goodsList"  class="Service.YYYService.GoodsListService" />
-	 
+	 <bean id = "member"  class="Service.YYYService.PlaceGoodsRegService" />
+
 	
 </beans>
