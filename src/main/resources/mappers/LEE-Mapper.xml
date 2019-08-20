@@ -13,11 +13,18 @@
 		, #{addr},
 		#{email},#{gender}, #{fileName}, #{memberBir}, '정상' )
 	</insert>
+	
 	<sql id="basecolumn">
 		MEMBER_NUM,MEMBER_ID,MEMBER_PW,MEMBER_NAME,MEMBER_PH,
 		MEMBER_ADDR,MEMBER_EMAIL,GENDER,MEMBER_PHOTO,MEMBER_BIRTH,
 		MEMBER_STATUS
 	</sql>
+	<sql id="basecolumnCompany">
+		COMPANY_NUM, COMPANY_KIND, COMPANY_ID, COMPANY_PW,
+		COMPANY_BN, COMPANY_NAME, COMPANY_CAP, COMPANY_PH, COMPANY_EMAIL,
+		MANAGER_NAME, COMPANY_ADDR, COMPANY_BANK, COMPANY_ACC, COMPANY_STATUS
+	</sql>
+	
 	<resultMap type="Member" id="baseMember">
 		<id column="MEMBER_NUM" jdbcType="VARCHAR" property="memberNum" />
 		<result column="MEMBER_NAME" jdbcType="VARCHAR"
@@ -39,21 +46,36 @@
 		<result column="MEMBER_PW" jdbcType="VARCHAR"
 			property="memberPw" />
 	</resultMap>
-	
-	<resultMap type="Member" id="imgFile">
-		<result column="STORED_FILE_NAME" jdbcType="VARCHAR"
-			property="fileName" />
-	</resultMap>
 
-	<insert id="fileInsert" parameterType="TbFile">
-		insert into TB_FILE ( IDX
-		, BOARD_IDX, ORIGINAL_FILE_NAME
-		, STORED_FILE_NAME, FILE_SIZE,
-		CREA_DTM,CREA_ID )
-		values
-		(MEMBER_NUM_seq.CURRVAL,#{boardIdx},#{originalFileName},
-		#{storedFileName},#{fileSize},sysdate,#{memId})
-	</insert>
+	<resultMap type="Company" id="baseCompany">
+		<id column="COMPANY_NUM" jdbcType="VARCHAR" property="companyNum" />
+		<result column="COMPANY_KIND" jdbcType="VARCHAR"
+			property="companyKind" />
+		<result column="COMPANY_ID" jdbcType="VARCHAR"
+			property="companyId" />
+		<result column="COMPANY_PW" jdbcType="VARCHAR"
+			property="companyPw" />
+		<result column="COMPANY_BN" jdbcType="VARCHAR"
+			property="companyBn" />
+		<result column="COMPANY_NAME" jdbcType="VARCHAR"
+			property="companyName" />
+		<result column="COMPANY_CAP" jdbcType="VARCHAR"
+			property="companyCap" />
+		<result column="COMPANY_PH" jdbcType="BIGINT"
+			property="companyPh" />
+		<result column="COMPANY_EMAIL" jdbcType="VARCHAR"
+			property="managerEmail" />
+		<result column="MANAGER_NAME" jdbcType="VARCHAR"
+			property="managerName" />
+		<result column="COMPANY_ADDR" jdbcType="VARCHAR"
+			property="companyAddr" />
+		<result column="COMPANY_BANK" jdbcType="VARCHAR"
+			property="companyBank" />
+		<result column="COMPANY_ACC" jdbcType="VARCHAR"
+			property="companyAcc" />
+		<result column="COMPANY_STATUS" jdbcType="VARCHAR"
+			property="companyStatus" />
+	</resultMap>
 
 	<select id="userCheck" parameterType="Member"
 		resultMap="baseMember">
@@ -69,12 +91,27 @@
 		from member
 		where member_id = #{memberId}
 	</select>
-	<select id="getOriginalFileName" parameterType="Member"
-		resultMap="imgFile">
-		select STORED_FILE_NAME
-		from member m, TB_file tb
-		where
-		m.member_id = tb.crea_id
-		and member_id = #{memberId}
+
+	<insert id="companyInsert" parameterType="Company">
+		insert into company
+		(COMPANY_NUM, COMPANY_KIND, COMPANY_ID, COMPANY_PW,
+		COMPANY_BN,
+		COMPANY_NAME, COMPANY_CAP, COMPANY_PH, COMPANY_EMAIL,
+		MANAGER_NAME,
+		COMPANY_ADDR, COMPANY_BANK, COMPANY_ACC, COMPANY_STATUS)
+		values ('CO'||
+		COMPANY_NUM_seq.nextval,
+		#{companyKind},#{companyId},#{companyPw},
+		#{companyBn}, #{companyName},
+		#{companyCap},#{companyPh},
+		#{managerEmail}, #{managerName},
+		#{companyAddr},#{companyBank},#{companyAcc},#{companyStatus} )
+	</insert>
+	<select id="companyCheck" parameterType="Company"
+		resultMap="baseCompany">
+		select
+		<include refid="basecolumnCompany" />
+		from company
+		where COMPANY_ID = #{companyId} and COMPANY_PW = #{companyPw}
 	</select>
 </mapper>
