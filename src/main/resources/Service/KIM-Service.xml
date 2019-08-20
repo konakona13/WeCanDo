@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=
+			"http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			"	
+>
+	
+	<!-- <bean id = "member"  class="Model.DTO.Member" /> -->
+	
+<bean id = "kendoJoinService" class= "Service.kimService.KendoJoinService"/>
+<<<<<<< HEAD
+<bean id = "setterService" class= "Service.kimService.LetterService"/>
+<bean id = "companyRegService" class= "Service.kimService.CompanyRegService"/>
+=======
+>>>>>>> 28a97143e350e3d616fb14ca0302c0bf3a2db769
+	
+</beans>
