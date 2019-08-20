@@ -11,5 +11,10 @@
 	<!-- <bean id = "member"  class="Model.DTO.Member" /> -->
 	
 <bean id = "kendoJoinService" class= "Service.kimService.KendoJoinService"/>
+<<<<<<< HEAD
+<bean id = "setterService" class= "Service.kimService.LetterService"/>
+<bean id = "companyRegService" class= "Service.kimService.CompanyRegService"/>
+=======
+>>>>>>> 28a97143e350e3d616fb14ca0302c0bf3a2db769
 	
 </beans>

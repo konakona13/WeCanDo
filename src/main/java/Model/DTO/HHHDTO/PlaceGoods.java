@@ -1,6 +1,10 @@
 package Model.DTO.HHHDTO;
 
-public class PlaceGoods {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class PlaceGoods implements Serializable
+{
 	
 	String goodsNum;
 	String mapLNum;
